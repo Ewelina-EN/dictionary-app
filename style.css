@@ -1,0 +1,77 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #f5f3ef;
+  font-family: "Arima Madurai", sans-serif;
+  letter-spacing: 1px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0px auto;
+  padding: 50px;
+}
+
+section {
+  margin-top: 10px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
+}
+
+.dictionary {
+  display: flex;
+  background-color: #fff;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.search_input {
+  flex-basis: 75%;
+  flex-grow: 1;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.examples {
+  font-size: 13px;
+}
+
+.phonetic {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 20px;
+}
+
+.phonetic_link {
+  text-decoration: none;
+  /* background-color: bisque; */
+  /* border-radius: 10px; */
+  /* border: 1px solid black; */
+  flex-grow: 1;
+  /* padding: 5px; */
+  /* color: teal; */
+  font-weight: bold;
+  font-size: 18px;
+  color: black§;
+}
+
+.phonetic_text {
+  flex-grow: 2;
+  font-weight: bold;
+  font-size: 18px;
+  color: #666;
+  /* dodać padding: 10px 0 0 0; na urządzenia mobilne */
+}
