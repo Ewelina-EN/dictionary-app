@@ -22,7 +22,7 @@ body {
 
 section {
   margin-top: 10px;
-  padding: 30px;
+  padding: 20px 60px;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
@@ -36,36 +36,54 @@ section {
 }
 
 .search_input {
-  flex-basis: 75%;
-  flex-grow: 1;
+  flex-grow: 3;
   border-radius: 8px;
   padding: 20px;
   border: 1px solid #ccc;
+  margin: 0 10px 0 0;
+  font-size: medium;
+  letter-spacing: 1px;
+}
+
+.button {
+  flex-grow: 1;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: rgb(235, 225, 225);
+  color: #666666;
+  font-size: medium;
+  letter-spacing: 1px;
+}
+
+.search_img {
+  width: 30px;
+  height: 30px;
 }
 
 .examples {
-  font-size: 13px;
+  margin: 20px 20px;
+}
+.js-phonetics-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 .phonetic {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
-  margin: 20px;
+  justify-content: center;
+  align-content: center;
 }
 
 .phonetic_link {
   text-decoration: none;
-  /* background-color: bisque; */
-  /* border-radius: 10px; */
-  /* border: 1px solid black; */
-  flex-grow: 1;
-  /* padding: 5px; */
-  /* color: teal; */
-  font-weight: bold;
-  font-size: 18px;
-  color: black§;
+  border-radius: 1px solid #666666;
+  margin: 0;
+  padding-top: 10px;
 }
 
 .phonetic_text {
@@ -73,5 +91,38 @@ section {
   font-weight: bold;
   font-size: 18px;
   color: #666;
-  /* dodać padding: 10px 0 0 0; na urządzenia mobilne */
+  padding: 10px;
+  margin: 0;
+  /* add padding: 10px 0 0 0; */
+}
+
+.phonetic_icon {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+  box-shadow: 0 0 10px #2e5a87c8;
+}
+
+.quote {
+  font-size: 15px;
+  font-style: italic;
+  color: #666666;
+  margin-bottom: 15px;
+}
+
+.partOfSpeech {
+  margin-bottom: 0;
+}
+
+hr {
+  margin: 10px 0 30px 0;
+}
+
+.definition {
+  font-size: 18px;
 }
