@@ -15,6 +15,8 @@ body {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   max-width: 800px;
   margin: 0px auto;
   padding: 50px;
@@ -64,6 +66,7 @@ section {
 .examples {
   margin: 20px 20px;
 }
+
 .js-phonetics-container {
   display: flex;
   justify-content: space-between;
@@ -105,7 +108,7 @@ section {
 
 .hidden {
   display: none;
-  box-shadow: 0 0 10px #2e5a87c8;
+  /* box-shadow: 0 0 10px #2e5a87c8; */
 }
 
 .quote {
@@ -125,4 +128,24 @@ hr {
 
 .definition {
   font-size: 18px;
+}
+
+.app_footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 15px;
+}
+
+.app_footer a:hover {
+  color: #4c5e4d;
+  text-decoration: none;
+}
+
+.footer_link {
+  color: black;
+  text-align: center;
+  margin: 30px 0;
+  text-decoration: none;
 }
