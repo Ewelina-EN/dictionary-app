@@ -61,39 +61,15 @@ const definition_template = (data) => {
 };
 
 function wordDetails(data) {
-  phonetic.classList.remove("hidden");
-  meaning.classList.remove("hidden");
-  const html_phonetics_section = document.querySelector(
-    ".js-phonetics-container"
-  );
-  const html_meanings_section = document.querySelector(".js-meaning-container");
-  // console.log(html_meanings_section);
+  phonetic.innerHTML = "";
   for (record of data) {
-    for (phonetic of record.phonetics) {
-      html_phonetics_section.innerHTML += phonetic_template(phonetic);
+    for (phonetic_item of record.phonetics) {
+      phonetic.innerHTML += phonetic_template(phonetic_item);
     }
-    for (meaning of record.meanings) {
-      html_meanings_section.innerHTML += meaning_template(meaning);
+    for (meaning_item of record.meanings) {
+      meaning.innerHTML += meaning_template(meaning_item);
     }
   }
+  phonetic.classList.remove("hidden");
+  meaning.classList.remove("hidden");
 }
-// fetch("./api_response.json")
-//   .then((response) => response.json())
-//   .then((json) => {
-//     const html_phonetics_section = document.querySelector(
-//       ".js-phonetics-container"
-//     );
-//     const html_meanings_section = document.querySelector(
-//       ".js-meaning-container"
-//     );
-//     console.log(html_meanings_section);
-//     for (record of json) {
-//       for (phonetic of record.phonetics) {
-//         html_phonetics_section.innerHTML =
-//           html_phonetics_section.innerHTML + phonetic_template(phonetic);
-//       }
-//       for (meaning of record.meanings) {
-//         html_meanings_section.innerHTML += meaning_template(meaning);
-//       }
-//     }
-//   });
