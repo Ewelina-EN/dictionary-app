@@ -1,21 +1,26 @@
-let inputval = document.querySelector(".js-input");
-let searchBtn = document.querySelector(".js-button");
-let phonetic = document.querySelector(".js-phonetics-container");
-let meaning = document.querySelector(".js-meaning-container");
-let APIUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/";
-
-function fetchData(url) {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => wordDetails(data));
-}
+const inputval = document.querySelector(".js-input");
+const searchBtn = document.querySelector(".js-button");
+const phonetic = document.querySelector(".js-phonetics-container");
+const meaning = document.querySelector(".js-meaning-container");
+const photos = document.querySelector(".js-photos-container");
+const APIDictionaryUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+const photoApiKey = "563492ad6f91700001000001aecbe5270a824bd1aa199ffdd5f51297";
+const APIPhotoUrl = "https://api.pexels.com/v1/search?query=";
 
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault();
   phonetic.classList.add("hidden");
   meaning.classList.add("hidden");
-  fetchData(`${APIUrl}${inputval.value}`);
+  photos.classList.add("hidden");
+  fetchDictionaryData(`${APIDictionaryUrl}${"apple"}`);
+  fetchPhotosData(`${APIPhotoUrl}${"apple"}`);
 });
+
+function fetchDictionaryData(url) {
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => wordDetails(data));
+}
 
 const phonetic_template = (data) => {
   `<h1 class="js-header">${inputval.value}</h1>` + `<hr />`;
@@ -72,4 +77,31 @@ function wordDetails(data) {
   }
   phonetic.classList.remove("hidden");
   meaning.classList.remove("hidden");
+}
+
+function fetchPhotosData(url) {
+  fetch(url, {
+    headers: {
+      Authorization: photoApiKey,
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => photoTemplate(data));
+}
+
+const photo_template = (data) => {
+  let photoHTML =
+    `<div>` +
+    `<img src=${data.src.large}/>` +
+    `<p>${data.photographer}</p>` +
+    `</div>`;
+  return photoHTML;
+};
+
+function photoTemplate(data) {
+  photos.innerHTML = "";
+  for (photo_item of data.photos) {
+    photos.innerHTML += photo_template(photo_item);
+  }
+  photos.classList.remove("hidden");
 }
