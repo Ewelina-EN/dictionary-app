@@ -69,17 +69,15 @@ section {
 
 .js-phonetics-container {
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+  justify-content: space-around;
   flex-wrap: wrap;
-  align-content: center;
 }
 
 .phonetic {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  align-content: center;
 }
 
 .phonetic_link {
@@ -107,8 +105,7 @@ section {
 }
 
 .hidden {
-  display: none;
-  /* box-shadow: 0 0 10px #2e5a87c8; */
+  display: none !important;
 }
 
 .quote {
@@ -148,4 +145,18 @@ hr {
   text-align: center;
   margin: 30px 0;
   text-decoration: none;
+}
+
+.js-photos-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-between;
+  padding: 20px 60px;
+}
+
+.img {
+  padding: 20px;
+  border-radius: 8px;
 }
