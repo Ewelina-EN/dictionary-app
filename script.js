@@ -25,9 +25,9 @@ function fetchDictionaryData(url) {
 const phonetic_template = (data) => {
   `<h1 class="js-header">${inputval.value}</h1>` + `<hr />`;
   let phoneticHTML =
-    `<div class="phonetic js-phonetic">` +
-    `<a class="phonetic_link js-link" href="${data.audio}"> <img class="phonetic_icon" src="sound.png" /> </a>` +
-    `<p class="phonetic_text js-text">${data.text}</p>` +
+    `<div class="phonetic">` +
+    `<a class="phonetic_link" href="${data.audio}"> <img class="phonetic_icon" src="sound.png" /> </a>` +
+    `<p class="phonetic_text">${data.text}</p>` +
     `</div>`;
   return phoneticHTML;
 };
@@ -38,12 +38,12 @@ const meaning_template = (data) => {
     definitions_html += definition_template(definition);
   }
   let meaningHTML =
-    `<div class="meaning js-meaning">` +
+    `<div>` +
     `<h1 class="partOfSpeech">${data.partOfSpeech}</h1>` +
     `<hr />` +
     definitions_html +
     `</div>` +
-    `<div class="synonyms js-synonyms">`;
+    `<div>`;
   if (data.synonyms) {
     meaningHTML +=
       `<strong>Similar:</strong>` +
@@ -90,11 +90,7 @@ function fetchPhotosData(url) {
 }
 
 const photo_template = (data) => {
-  let photoHTML =
-    `<div>` +
-    `<img src=${data.src.large}/>` +
-    `<p>${data.photographer}</p>` +
-    `</div>`;
+  let photoHTML = `<img class="img" src=${data.src.tiny}/>`;
   return photoHTML;
 };
 
