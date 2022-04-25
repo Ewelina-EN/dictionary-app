@@ -44,7 +44,7 @@ function phonetic_template(data) {
   return phoneticHTML;
 }
 
-const meaning_template = (data) => {
+function meaning_template(data) {
   let definitions_html = "";
   for (definition of data.definitions) {
     definitions_html += definition_template(definition);
@@ -66,9 +66,9 @@ const meaning_template = (data) => {
   }
   meaningHTML += `</div>`;
   return meaningHTML;
-};
+}
 
-const definition_template = (data) => {
+function definition_template(data) {
   let definitionHTML = `<div>` + `<p class="definition">${data.definition}</p>`;
   if (data.example) {
     definitionHTML += `<span class="quote">${data.example}</span>`;
@@ -76,7 +76,7 @@ const definition_template = (data) => {
   definitionHTML +=
     `<p>${data.synonyms}</p>` + `<p>${data.antonyms}</p>` + `</div>`;
   return definitionHTML;
-};
+}
 
 function wordDetails(data) {
   phonetic.innerHTML = "";
@@ -103,10 +103,10 @@ function fetchPhotosData(url) {
     .then((data) => photoTemplate(data));
 }
 
-const photo_template = (data) => {
+function photo_template(data) {
   let photoHTML = `<img class="img" src=${data.src.tiny}/>`;
   return photoHTML;
-};
+}
 
 function photoTemplate(data) {
   // znak zapytania sprawdza czy obiekt istnieje
@@ -120,7 +120,7 @@ function photoTemplate(data) {
   }
 }
 
-const errorTemplate = (data) => {
+function errorTemplate() {
   errorBox.classList.remove("hidden");
   if (inputval.value == "") {
     errorBox.innerHTML =
@@ -139,4 +139,4 @@ const errorTemplate = (data) => {
       `<p> Please check you have typed the word correctly.</p>` +
       `</div>`;
   }
-};
+}
