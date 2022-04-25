@@ -160,3 +160,13 @@ hr {
   padding: 20px;
   border-radius: 8px;
 }
+
+.errorHeader {
+  color: black;
+  text-align: center;
+}
+
+.error {
+  font-size: 20px;
+  text-align: center;
+}
