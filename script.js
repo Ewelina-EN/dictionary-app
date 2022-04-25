@@ -14,9 +14,9 @@ searchBtn.addEventListener("click", function (e) {
   meaning.classList.add("hidden");
   photos.classList.add("hidden");
   errorBox.classList.add("hidden");
-  const search_term = inputval.value != "" ? inputval.value : "dfgdsgsagffg";
-  fetchDictionaryData(`${APIDictionaryUrl}${search_term}`);
-  fetchPhotosData(`${APIPhotoUrl}${search_term}`);
+  // const search_term = inputval.value != "" ? inputval.value : "dfgdsgsagffg";
+  fetchDictionaryData(`${APIDictionaryUrl}${inputval.value}`);
+  fetchPhotosData(`${APIPhotoUrl}${inputval.value}`);
 });
 
 function fetchDictionaryData(url) {
@@ -58,7 +58,7 @@ function meaning_template(data) {
     `<div>`;
   if (data.synonyms.length) {
     console.log(1, data.synonyms);
-    meaningHTML += `<strong>Similar:</strong>` + `<ul>`;
+    meaningHTML += `<p class="similar">Similar:</p>` + `<ul>`;
     for (synonym of data.synonyms) {
       meaningHTML += `<li>${synonym}</li>`;
     }
