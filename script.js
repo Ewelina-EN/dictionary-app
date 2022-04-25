@@ -6,23 +6,35 @@ const photos = document.querySelector(".js-photos-container");
 const APIDictionaryUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 const photoApiKey = "563492ad6f91700001000001aecbe5270a824bd1aa199ffdd5f51297";
 const APIPhotoUrl = "https://api.pexels.com/v1/search?query=";
+const errorBox = document.querySelector(".js-error-container");
 
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault();
   phonetic.classList.add("hidden");
   meaning.classList.add("hidden");
   photos.classList.add("hidden");
-  fetchDictionaryData(`${APIDictionaryUrl}${"apple"}`);
-  fetchPhotosData(`${APIPhotoUrl}${"apple"}`);
+  errorBox.classList.add("hidden");
+  const search_term = inputval.value != "" ? inputval.value : "dfgdsgsagffg";
+  fetchDictionaryData(`${APIDictionaryUrl}${search_term}`);
+  fetchPhotosData(`${APIPhotoUrl}${search_term}`);
 });
 
 function fetchDictionaryData(url) {
   fetch(url)
-    .then((response) => response.json())
+    .then((response) => handleResponse(response))
     .then((data) => wordDetails(data));
 }
 
-const phonetic_template = (data) => {
+function handleResponse(response) {
+  console.log("response", response);
+  if (!response.ok) {
+    errorTemplate();
+    throw new Error(response.statusText, { cause: response });
+  }
+  return response.json();
+}
+
+function phonetic_template(data) {
   `<h1 class="js-header">${inputval.value}</h1>` + `<hr />`;
   let phoneticHTML =
     `<div class="phonetic">` +
@@ -30,7 +42,7 @@ const phonetic_template = (data) => {
     `<p class="phonetic_text">${data.text}</p>` +
     `</div>`;
   return phoneticHTML;
-};
+}
 
 const meaning_template = (data) => {
   let definitions_html = "";
@@ -44,12 +56,13 @@ const meaning_template = (data) => {
     definitions_html +
     `</div>` +
     `<div>`;
-  if (data.synonyms) {
-    meaningHTML +=
-      `<strong>Similar:</strong>` +
-      `<ul>` +
-      `<li>${data.synonyms}</li>` +
-      `</ul>`;
+  if (data.synonyms.length) {
+    console.log(1, data.synonyms);
+    meaningHTML += `<strong>Similar:</strong>` + `<ul>`;
+    for (synonym of data.synonyms) {
+      meaningHTML += `<li>${synonym}</li>`;
+    }
+    meaningHTML += `</ul>`;
   }
   meaningHTML += `</div>`;
   return meaningHTML;
@@ -85,6 +98,7 @@ function fetchPhotosData(url) {
       Authorization: photoApiKey,
     },
   })
+    //odpowidź API dot. zdjęć nawet przy pustym zbiorze jest 200 ok
     .then((response) => response.json())
     .then((data) => photoTemplate(data));
 }
@@ -95,9 +109,34 @@ const photo_template = (data) => {
 };
 
 function photoTemplate(data) {
-  photos.innerHTML = "";
-  for (photo_item of data.photos) {
-    photos.innerHTML += photo_template(photo_item);
+  // znak zapytania sprawdza czy obiekt istnieje
+  // jeśli nie istnieje, zatrzymuje if z wynikiem false
+  if (data.photos?.length) {
+    photos.innerHTML = "";
+    for (photo_item of data.photos) {
+      photos.innerHTML += photo_template(photo_item);
+    }
+    photos.classList.remove("hidden");
   }
-  photos.classList.remove("hidden");
 }
+
+const errorTemplate = (data) => {
+  errorBox.classList.remove("hidden");
+  if (inputval.value == "") {
+    errorBox.innerHTML =
+      `<h1 class="errorHeader"> Just type the word you're looking for in the search field` +
+      `</h1>`;
+  } else {
+    errorBox.innerHTML =
+      `<h2 class="errorHeader">Your search terms did not match any entries </h2>` +
+      `<hr />` +
+      `<div class="error">` +
+      `<p>We cannot find any entries matching: ` +
+      `<p>` +
+      `<b>${inputval.value}</b>` +
+      `</p>` +
+      `</p>` +
+      `<p> Please check you have typed the word correctly.</p>` +
+      `</div>`;
+  }
+};
