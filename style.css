@@ -1,192 +1,194 @@
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *,
 ::after,
 ::before {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 body {
-  background-color: #f5f3ef;
-  font-family: "Arima Madurai", sans-serif;
-  letter-spacing: 1px;
+    background-color: #f5f3ef;
+    font-family: "Arima Madurai", sans-serif;
+    letter-spacing: 1px;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  max-width: 800px;
-  margin: 0px auto;
-  padding: 50px;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0px auto;
+    padding: 50px;
 }
 
 section {
-  margin-top: 10px;
-  padding: 20px 60px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
+    margin-top: 10px;
+    padding: 20px 60px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
 }
 
 .dictionary {
-  display: flex;
-  background-color: #fff;
-  flex-direction: row;
-  flex-wrap: wrap;
+    display: flex;
+    background-color: #fff;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .search_input {
-  flex-grow: 3;
-  border-radius: 8px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  margin: 0 10px 0 0;
-  font-size: medium;
-  letter-spacing: 1px;
+    flex-grow: 3;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 0 10px 0 0;
+    font-size: medium;
+    letter-spacing: 1px;
 }
 
 .button {
-  flex-grow: 1;
-  cursor: pointer;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: rgb(235, 225, 225);
-  color: #666666;
-  font-size: medium;
-  letter-spacing: 1px;
+    flex-grow: 1;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: rgb(235, 225, 225);
+    color: #666666;
+    font-size: medium;
+    letter-spacing: 1px;
 }
 
 .search_img {
-  width: 30px;
-  height: 30px;
+    width: 30px;
+    height: 30px;
 }
 
 .examples {
-  margin: 20px 20px;
+    margin: 20px 20px;
 }
 
 .js-phonetics-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .phonetic {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .phonetic_link {
-  text-decoration: none;
-  border-radius: 1px solid #666666;
-  margin: 0;
-  padding-top: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 1px solid #666666;
+    margin: 0;
 }
 
 .phonetic_text {
-  flex-grow: 2;
-  font-weight: bold;
-  font-size: 18px;
-  color: #666;
-  padding: 10px;
-  margin: 0;
-  /* add padding: 10px 0 0 0; */
+    display: flex;
+    font-weight: bold;
+    font-size: 18px;
+    color: #666;
+    margin: 0;
+    align-items: center;
 }
 
 .phonetic_icon {
-  cursor: pointer;
-  width: 35px;
-  height: 35px;
-  align-items: center;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    margin-right: 15px;
 }
 
 .hidden {
-  display: none !important;
+    display: none !important;
 }
 
 .quote {
-  font-size: 15px;
-  font-style: italic;
-  color: #666666;
-  margin-bottom: 15px;
+    font-size: 15px;
+    font-style: italic;
+    color: #666666;
+    margin-bottom: 15px;
 }
 
 .partOfSpeech {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .similar {
-  font-size: 20px;
-  font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 hr {
-  margin: 10px 0 30px 0;
+    margin: 10px 0 30px 0;
 }
 
 .definition {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .app_footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 15px;
 }
 
 .app_footer a:hover {
-  color: #4c5e4d;
-  text-decoration: none;
+    color: #4c5e4d;
+    text-decoration: none;
 }
 
 .footer_link {
-  color: black;
-  text-align: center;
-  margin: 30px 0;
-  text-decoration: none;
+    color: black;
+    text-align: center;
+    margin: 30px 0;
+    text-decoration: none;
 }
 
 .js-photos-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: flex-start;
-  padding: 20px;
-  overflow: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    padding: 20px;
+    overflow: auto;
 }
 
 ul {
-  list-style: inside circle;
-  font-size: 17px;
+    list-style: inside circle;
+    font-size: 17px;
 }
 
 .img {
-  padding: 5px 0 5px 0;
-  border-radius: 8px;
-  width: 180px;
-  height: 150px;
-  margin: 10px;
+    padding: 5px 0 5px 0;
+    border-radius: 8px;
+    width: 180px;
+    height: 150px;
+    margin: 10px;
 }
+
 .img:hover {
-  border: 2px solid #666;
-  padding: 0;
-  margin: 0;
+    border: 2px solid #666;
+    padding: 0;
+    margin: 0;
 }
 
 .errorHeader {
-  color: black;
-  text-align: center;
+    color: black;
+    text-align: center;
 }
 
 .error {
-  font-size: 20px;
-  text-align: center;
+    font-size: 20px;
+    text-align: center;
 }
